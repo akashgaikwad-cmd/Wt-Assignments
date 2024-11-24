@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Layout</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        header, footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            height: 80vh;
+            margin: 10px;
+        }
+
+        .content {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            width: 80%;
+            border: 2px solid #333;
+            margin: 10px 0;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .buttons button {
+            width: 50px;
+            height: 50px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .buttons button.blue {
+            background-color: blue;
+        }
+
+        .buttons button.orange {
+            background-color: orange;
+        }
+
+        .buttons button.green {
+            background-color: green;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .content {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Responsive Layout</h1>
+    </header>
+
+    <div class="container">
+        <div class="content" id="color-box">
+            <p>This section should change color after clicking on the following buttons</p>
+        </div>
+
+        <div class="buttons">
+            <button class="blue" onclick="changeColor('blue')"></button>
+            <button class="orange" onclick="changeColor('orange')"></button>
+            <button class="green" onclick="changeColor('green')"></button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Responsive Layout</p>
+    </footer>
+
+    <script>
+        // JavaScript function to change color
+        function changeColor(color) {
+            const colorBox = document.getElementById('color-box');
+            colorBox.style.backgroundColor = color;
+        }
+    </script>
+</body>
+</html>
