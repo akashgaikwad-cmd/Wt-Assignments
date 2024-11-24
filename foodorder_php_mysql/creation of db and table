@@ -1,0 +1,32 @@
+CREATE DATABASE RestaurantDB;
+
+USE RestaurantDB;
+
+-- Table for food items
+CREATE TABLE FoodItems (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    description TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Table for orders
+CREATE TABLE Orders (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    customer_name VARCHAR(100) NOT NULL,
+    order_details TEXT NOT NULL, -- Comma-separated food IDs
+    total_price DECIMAL(10, 2) NOT NULL,
+    order_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+INSERT INTO FoodItems (name, price, description) VALUES
+('Margherita Pizza', 8.99, 'Classic pizza with tomato sauce, mozzarella, and fresh basil'),
+('Cheeseburger', 10.50, 'Grilled beef patty with cheddar cheese, lettuce, and tomato'),
+('Caesar Salad', 7.25, 'Crisp romaine lettuce, croutons, and Caesar dressing'),
+('Chicken Alfredo Pasta', 12.99, 'Creamy Alfredo sauce with grilled chicken and fettuccine'),
+('Garlic Bread', 3.99, 'Toasted baguette with garlic butter'),
+('Chocolate Brownie', 4.50, 'Rich chocolate dessert served with vanilla ice cream'),
+('Grilled Salmon', 15.00, 'Freshly grilled salmon with a side of vegetables'),
+('French Fries', 3.25, 'Crispy golden fries seasoned with salt'),
+('Vegetable Stir-Fry', 9.00, 'Assorted vegetables sautéed in a savory sauce'),
+('Ice Cream Sundae', 5.50, 'Vanilla ice cream topped with chocolate syrup and nuts');
