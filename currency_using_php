@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        input[type="number"], button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .result {
+            margin-top: 10px;
+            font-size: 1.2em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Currency Converter</h2>
+        <form method="POST" action="">
+            <label for="amount">Enter amount in USD:</label>
+            <input type="number" name="amount" id="amount" step="0.01" required>
+            <button type="submit">Convert to INR</button>
+        </form>
+
+        <?php
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $amount = floatval($_POST['amount']);
+            $exchangeRate = 82.5; // Example hard-coded exchange rate
+            $convertedAmount = $amount * $exchangeRate;
+
+            echo "<div class='result'>Amount in INR: ₹" . number_format($convertedAmount, 2) . "</div>";
+        }
+        ?>
+    </div>
+</body>
+</html>
