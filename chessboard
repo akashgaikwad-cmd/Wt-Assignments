@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Chessboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header, footer {
+      background-color: #333;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      width: 100%;
+    }
+
+    .chessboard {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      width: 90vmin; /* Scales with the viewport size */
+      height: 90vmin;
+      border: 2px solid #333;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .chessboard div {
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .chessboard .dark {
+      background-color: #769656;
+    }
+
+    .chessboard .light {
+      background-color: #eeeed2;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Responsive Chessboard</h1>
+  </header>
+  
+  <div class="chessboard">
+    <!-- Generate 64 squares using a loop -->
+    <script>
+      const chessboard = document.querySelector('.chessboard');
+      for (let i = 0; i < 64; i++) {
+        const square = document.createElement('div');
+        square.className = (Math.floor(i / 8) + i) % 2 === 0 ? 'light' : 'dark';
+        chessboard.appendChild(square);
+      }
+    </script>
+  </div>
+
+  <footer>
+    <p>© 2024 Your Name. All rights reserved.</p>
+  </footer>
+</body>
+</html>
